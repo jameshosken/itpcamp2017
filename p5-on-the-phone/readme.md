@@ -13,10 +13,14 @@ Or: How I Learned To Stop Worrying About Android Studio And Love Cordova
 
 Download and install [Node.js](https://nodejs.org/en/download/). *Mac & Linux users can run node.js in the terminal, Windows users will have to run the Node.js Command Prompt app.*
 
+----
+
 ### Workshop Breakdown:
 1. Workshop Requirements *(Android Studio/XCode/VS2015 + node.js + Cordova + p5js)*
 2. Review of p5js *(Let's make a ball bounce)*
 3. P5 and Cordova!
+
+----
 
 ### Workshop Requirements
 
@@ -29,6 +33,7 @@ See [sdk installation guide](sdk-installation)
 See section on Node.js above.
 
 #### 3. Cordova
+*We will run through installing cordova together during the workshop*
 
 1. Install Cordova using `npm install -g cordova`
 2. Navigate to where you want your project in your terminal
@@ -40,9 +45,12 @@ See section on Node.js above.
 
 [Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
 
+----
 
 ### Review of p5.js
 Now that we've got Cordova up and running, let's have a look at what we're going to port to the phone. For this example we'll create a simple bouncing ball sketch. See **BouncingBallSketch** in *Examples*.
+
+----
 
 ### p5 and Cordova!
 
