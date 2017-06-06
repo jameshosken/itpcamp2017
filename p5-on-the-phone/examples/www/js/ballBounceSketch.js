@@ -31,7 +31,7 @@ var bounceBallSketch = function(sketch){
 
   sketch.draw = function(){
     try{
-      sketch.background(0);
+      sketch.background(255,10);
       sketch.moveBall();
       sketch.checkBounds();
       sketch.drawBall();
@@ -82,6 +82,7 @@ var bounceBallSketch = function(sketch){
   }
 
   sketch.drawBall = function(){
+    sketch.noStroke();
     sketch.fill(255,0,0);
     sketch.ellipse(ballPos.x, ballPos.y, 20,20);
   }
@@ -97,11 +98,17 @@ var bounceBallSketch = function(sketch){
         ballAcc.y = acceleration.y/10;
       }
 
-
-
-
     }, function(){
       alert("Accelerometer Error")
     })
   }
+
+  // function touchMoved() {
+  //   stroke(0,0,255);
+  //   strokeWeight(3);
+  //   line(mouseX, mouseY, pmouseX, pmouseY);
+  //   if (value > 255) {
+  //     value = 0;
+  //   }
+  // }
 }

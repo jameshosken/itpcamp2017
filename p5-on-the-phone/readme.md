@@ -3,6 +3,16 @@ p5.js on the phone
 Or: How I Learned To Stop Worrying About Android Studio And Love Cordova
 ------
 
+### To Prepare In Advance:
+
+#### 1. SDKs
+
+**Please** read through the [sdk installation guide](sdk-installation) and download & install the SDK for your device before you arrive. The installation can take a while and it will save us a lot of time.
+
+#### 2. Node.js
+
+Download and install [Node.js](https://nodejs.org/en/download/). *Mac & Linux users can run node.js in the terminal, Windows users will have to run the Node.js Command Prompt app.*
+
 ### Workshop Breakdown:
 1. Workshop Requirements *(Android Studio/XCode/VS2015 + node.js + Cordova + p5js)*
 2. Review of p5js *(Let's make a ball bounce)*
@@ -12,33 +22,11 @@ Or: How I Learned To Stop Worrying About Android Studio And Love Cordova
 
 #### 1. SDKs
 
-To build and run apps, you'll need to have the development SDKs installed for the platform you are building to.
-
-**For Android development you'll need the following installed:**
-1. [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) **8** or later.
-2. [Android Studio](https://developer.android.com/studio/index.html)
-  1. Android Platform SDK for your version of android
-  2. Android SDK build-tools version 19.1.0 or higher
-  3. Android Support Repository
-
-For more detailed information about preparing the android environment see [Android Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#requirements-and-support). Focus on **"Installing the Requirements"** section if you are having problems.
-
-**For IOS development you will need:**
-1. A Mac computer running Yosemite or later.
-2. XCode installed.
-3. IOS deployment tools *(install using npm:* `npm install -g ios-deploy`)
-
-For more detailed information visit [IOS Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support)
-
-**For Windows development you will need:**
-1. a Windows machine
-2. Visual Studio 2015 or higher.
-
-More detailed information can be found at [Windows Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/win8/index.html#requirements-and-support)
+See [sdk installation guide](sdk-installation)
 
 #### 2. Node.js
 
-Download and install [Node.js](https://nodejs.org/en/download/). Mac & Linux users can run node in the **terminal**, Windows users will have to run the **Node.js Command Prompt** app.
+See section on Node.js above.
 
 #### 3. Cordova
 
@@ -83,7 +71,26 @@ var bounceBallSketch = function(sketch){
 
 }
 ```
-**index.js:** *(Based on Cordova default app. Feel free to rename to something more interesting)*
+**index.js:** *(See index.js in examples for full code)*
 ```javascript
 
+var app = {
+    // Application Constructor
+    initialize: function() {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+
+    onDeviceReady: function() {
+        //initialize the p5 sketch object when device is ready
+        var p5BounceBallApp = new p5 (bounceBallSketch);
+
+    },
+
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        console.log('Received Event: ' + id);
+    }
+};
+
+app.initialize();
 ```

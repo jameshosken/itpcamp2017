@@ -34,6 +34,8 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
 
+        StatusBar.overlaysWebView(true);
+        
         //window.screen.width gives us a CSS px value, which is a ratio based on device pixel density.
         //Figure outand update physical screen width, useful for our p5 sketch:
         physicalScreenWidth = window.screen.width;
