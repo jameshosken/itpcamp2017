@@ -11,7 +11,7 @@ Or: How I Learned To Stop Worrying About Android Studio And Love Cordova
 
 #### 2. Node.js
 
-Download and install [Node.js](https://nodejs.org/en/download/). *Mac & Linux users can run node.js in the terminal, Windows users will have to run the Node.js Command Prompt app.*
+Download and install [Node.js](https://nodejs.org/en/download/).
 
 ----
 
