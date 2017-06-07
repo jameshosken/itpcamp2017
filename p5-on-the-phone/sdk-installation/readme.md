@@ -8,9 +8,9 @@ To build and run apps during our workshop, you'll need to have the development S
 **For Android development you'll need the following installed:**
 1. [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) **8** or later.
 2. [Android Studio](https://developer.android.com/studio/index.html)
-  1. [Android Platform SDK](https://developer.android.com/studio/intro/update.html) for your version of android
-  2. Android SDK build-tools version 19.1.0 or higher
-  3. Android Support Repository
+  1. [Android Platform SDK](https://developer.android.com/studio/intro/update.html#sdk-manager) for your version of android
+  2. [Android SDK build-tools](https://developer.android.com/studio/intro/update.html#sdk-manager) version 19.1.0 or higher
+  3. [Android Support Repository](https://developer.android.com/studio/intro/update.html#sdk-manager)
 
 For more detailed information about preparing the android environment see Cordova's [Android Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#requirements-and-support). Focus on **"Installing the Requirements"** section if you are having problems.
 

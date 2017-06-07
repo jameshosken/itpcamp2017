@@ -61,7 +61,11 @@ Now that we've got Cordova up and running, let's have a look at what we're going
 
 2. Quirks of p5 in Cordova
   * We need to postpone p5's `setup()` call until our device is loaded and ready. To do this we assign our p5 sketch as an object, and only call it on device ready.
-  * Super simple debugging can be achieved by using alerts rather than console logs. There are ways around this, such as [remote debugging for android](https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3#debugging-webviews) or using the Xcode console for ios, but for simplicity's sake right now we'll use alerts
+  * Sometimes for super simple debugging we can use alerts instead of console logs. I usually use alerts to get a sense of the overall flow of my app.
+3. Debugging.
+  * [Android](http://geeklearning.io/apache-cordova-and-remote-debugging-on-android/)
+  * [IOS](http://geeklearning.io/apache-cordova-and-remote-debugging-on-ios/)
+
 
 **bounceBallSketch:** *(See bounceBallSketch.js in Examples for full code.)*
 ```javascript
