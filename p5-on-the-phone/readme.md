@@ -55,9 +55,9 @@ Now that we've got Cordova up and running, let's have a look at what we're going
 ### p5 and Cordova!
 
 1. Basic changes to Cordova default app.
-  1. Remove content of *index.html* and `this.receivedEvent('deviceready')` reference in *index.js*.
-  2. Add `p5.js` script tag to *index.html*
-  3. Add a `.cnv{}` element in *index.css* for styling our p5 canvas later.
+  * Remove content of *index.html* and `this.receivedEvent('deviceready')` reference in *index.js*.
+  * Add `p5.js` script tag to *index.html*
+  * Add a `.cnv{}` element in *index.css* for styling our p5 canvas later.
 
 2. Quirks of p5 in Cordova
   * We need to postpone p5's `setup()` call until our device is loaded and ready. To do this we assign our p5 sketch as an object, and only call it on device ready.
