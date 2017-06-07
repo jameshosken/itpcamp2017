@@ -12,7 +12,7 @@ To build and run apps during our workshop, you'll need to have the development S
   2. Android SDK build-tools version 19.1.0 or higher
   3. Android Support Repository
 
-For more detailed information about preparing the android environment see [Android Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#requirements-and-support). Focus on **"Installing the Requirements"** section if you are having problems.
+For more detailed information about preparing the android environment see Cordova's [Android Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#requirements-and-support). Focus on **"Installing the Requirements"** section if you are having problems.
 
 ----
 ## IOS
@@ -22,7 +22,7 @@ For more detailed information about preparing the android environment see [Andro
 2. XCode installed.
 3. IOS deployment tools *(install using npm:* `npm install -g ios-deploy`)
 
-For more detailed information visit [IOS Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support)
+For more detailed information visit Cordova's [IOS Requirements](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html#requirements-and-support)
 
 ----
 ## Windows
