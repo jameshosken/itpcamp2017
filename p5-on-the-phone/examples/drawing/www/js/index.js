@@ -30,7 +30,7 @@ var app = {
     onDeviceReady: function() {
       console.log("Device Ready");
       alert("Pause for debugging purposes");            //I pause here to give me time to start the debugging page on my browser
-      var p5BounceBallApp = new p5 (bounceBallSketch);
+      var p5drawingApp = new p5 (drawingObj);
     },
 
     // Update DOM on a Received Event

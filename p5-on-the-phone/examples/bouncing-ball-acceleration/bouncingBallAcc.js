@@ -1,11 +1,10 @@
-
 var ballLoc;
 var ballVel;
 var ballAcc;
 
 
 var setup = function(){
-  smooth();
+
   var cnv = createCanvas(windowWidth, windowHeight);
 
   ballLoc = createVector(windowWidth/2, windowHeight/2);
@@ -20,7 +19,8 @@ var setup = function(){
 
 
 var draw = function(){
-  background(255,100);
+  
+  background(255);
   moveBall();
   drawBall();
 
@@ -29,17 +29,23 @@ var draw = function(){
 
 var moveBall = function(){
 
+  seekMouse();
+  ballVel.add(ballAcc);    
+  ballVel.limit(10);          //What's the Max speed the ball can acheive?
+  ballLoc.add(ballVel);
+
+}
+
+var seekMouse = function(){
+  //Reset Acceleration each frame
   ballAcc.mult(0);
 
-  //vect = target - location
+  //Find the vector that points towards the mouse from the ball
   var vect2mouse = createVector(mouseX-ballLoc.x, mouseY-ballLoc.y );
+  //Normalising leaves us with a vector of magnitude 1, which allows us to choose our acceleration force.
   vect2mouse.normalize();
-
-  ballVel.add(vect2mouse);
-  ballVel.limit(10);
-  ballLoc.add(ballVel);
-  console.log(ballLoc);
-
+  //Set the new ballAcc vector. We could use a multiplier here to change the intensity of acceleration.
+  ballAcc = vect2mouse;
 }
 
 var drawBall = function(){

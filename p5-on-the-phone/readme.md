@@ -33,22 +33,29 @@ See [sdk installation guide](sdk-installation)
 See section on Node.js above.
 
 #### 3. Cordova
+[Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
+
 *We will run through installing cordova together during the workshop*
 
 1. Install Cordova using `npm install -g cordova`
 2. Navigate to where you want your project in your terminal
-3. Run `cordova create bouncingBallApp`
+3. Run `cordova create [AppName]`
 4. Add a platform:
- 1. `cd bouncingBallApp`
- 2. `cordova platform add [ios/android/windows/browser]`
+ * `cd [AppName]`
+ * `cordova platform add [ios/android/windows/browser]`
 5. Test! `cordova run [ios/android/windows/browser]`
+6. DEBRIEF: look through *index.html* and *index.js*
 
-[Cordova Documentation](https://cordova.apache.org/docs/en/latest/guide/cli/index.html)
+**Note for Android** You may encounter an error that has something to do with "android-sdk PATH" or "Environmental Variables not set". If so, troubleshoot with below link.
+* [Windows](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#windows)
+* [OSX/Linux](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#os-x-and-linux)
+
+
 
 ----
 
 ### Review of p5.js
-Now that we've got Cordova up and running, let's have a look at what we're going to port to the phone. For this example we'll create a simple bouncing ball sketch. See **BouncingBallSketch** in *Examples*.
+Now that we've got Cordova up and running, let's have a look at what we're going to port to the phone. For this example we'll create a simple bouncing ball sketch. See the **bouncing-ball** sketches in *Examples*.
 
 ----
 
@@ -57,15 +64,24 @@ Now that we've got Cordova up and running, let's have a look at what we're going
 1. Basic changes to Cordova default app.
   * Remove content of *index.html* and `this.receivedEvent('deviceready')` reference in *index.js*.
   * Add `p5.js` script tag to *index.html*
-  * Add a `.cnv{}` element in *index.css* for styling our p5 canvas later.
-
-2. Quirks of p5 in Cordova
-  * We need to postpone p5's `setup()` call until our device is loaded and ready. To do this we assign our p5 sketch as an object, and only call it on device ready.
+  * Remove content of *index.css* and add a `.cnv{}` element in for styling our p5 canvas later.
+  * If you want you app **fullscreen**, add `<preference name="Fullscreen" value="true" />` to the config.xml file in the main folder.
+2. **Customise p5js!**
+  * **Example:** Drawing! *We need to postpone p5's `setup()` call until our device is loaded and ready. To do this we assign our p5 sketch as an object, and only call it on device ready.*
   * Sometimes for super simple debugging we can use alerts instead of console logs. I usually use alerts to get a sense of the overall flow of my app.
+2. Plugins.
+  * Back to Bouncing Ball. Port the bouncing ball sketch to your app's **www** folder.
+  * Adding a plugin to Cordova is as simple as typing `cordova plugin add [plugin-name]` in the terminal
+  * Cordova has a number of [API plugins](https://cordova.apache.org/docs/en/latest/) that we can use to access data from the phone. The most rewarding at this stage is [Device Motion](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-device-motion/index.html), which allows us to access the accelerometer data.
+  * Also check out [Vibration](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-vibration/index.html), which opens up the realm of haptic feedback.
+  * In addition to the standard plugins, there is a [community of active developers](https://cordova.apache.org/plugins/). I have found plugins that access the flashlight, maps, bluetooth, and more.
 3. Debugging.
   * [Android](http://geeklearning.io/apache-cordova-and-remote-debugging-on-android/)
   * [IOS](http://geeklearning.io/apache-cordova-and-remote-debugging-on-ios/)
+4. Video * Audio
+  * Not available yet, stay tuned for a [later update](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-media/index.html)
 
+### Code Snippets for p5 in Cordova
 
 **bounceBallSketch:** *(See bounceBallSketch.js in Examples for full code.)*
 ```javascript

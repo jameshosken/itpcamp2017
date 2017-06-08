@@ -1,31 +1,28 @@
 var bounceBallSketch = function(sketch){
 
   //Use alerts for basic debugging
-  alert("Sketch started!")
+  console.log("Sketch started!")
 
   //"pseudo global" variables (only available within this sketch)
   var ballPos;
   var ballVel;
   var ballAcc;
 
+  var capture;
+
   sketch.setup = function(){
-    /*
-    Since we don't have a console to use, I wrap my setup/draw code in a try/catch
-    handler so that I can 'alert' any errors to my phone screen.
-    It's fine for basic sketches, but perhaps not super robust.
-    */
 
     try{
-      //See, we're using those globals from before!
-      var cnv = sketch.createCanvas(physicalScreenWidth, physicalScreenHeight);
+      var cnv = sketch.createCanvas(window.innerWidth, window.innerHeight);
 
-      ballPos = sketch.createVector(window.screen.width/2, window.screen.height/2);
+      ballPos = sketch.createVector(window.innerWidth/2, window.innerHeight/2);
       ballVel = sketch.createVector(0,0);
       ballAcc = sketch.createVector(0,0);
 
     }
     catch(e){
-      alert(e);
+      alert("Setup error:");
+      console.log(e);
     }
   }
 
@@ -38,21 +35,26 @@ var bounceBallSketch = function(sketch){
 
       sketch.getAccelerationData();
 
+      sketch.stroke(0,0,255);
+      sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
+
     }
     catch(e){
-      alert(e);
+      alert(("Draw loop error:"));
+      console.log("Draw Error");
+      console.log(e)
     }
   }
 
   sketch.checkBounds = function(){
     var hit = false;
-    if(ballPos.x > physicalScreenWidth){
-      ballPos.x = physicalScreenWidth;
+    if(ballPos.x > window.innerWidth){
+      ballPos.x = window.innerWidth;
       ballVel.x *= -0.9;
       hit = true;
     }
-    if(ballPos.y > physicalScreenHeight){
-      ballPos.y = physicalScreenHeight;
+    if(ballPos.y > window.innerHeight){
+      ballPos.y = window.innerHeight;
       ballVel.y *= -0.9;
       hit = true;
     }
@@ -69,6 +71,7 @@ var bounceBallSketch = function(sketch){
     }
 
     if(hit){
+      //console.log("Vibrate!");
       navigator.vibrate(100);
     }
   }
@@ -99,7 +102,8 @@ var bounceBallSketch = function(sketch){
       }
 
     }, function(){
-      alert("Accelerometer Error")
+      console.log("Accelerometer Error")
+
     })
   }
 
