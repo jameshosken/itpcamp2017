@@ -46,9 +46,15 @@ See section on Node.js above.
 5. Test! `cordova run [ios/android/windows/browser]`
 6. DEBRIEF: look through *index.html* and *index.js*
 
-**Note for Android** You may encounter an error that has something to do with "android-sdk PATH" or "Environmental Variables not set". If so, troubleshoot with below link.
+**Note for Android** 
+
+You may encounter an error that has something to do with "android-sdk PATH" or "Environmental Variables not set". If so, troubleshoot with below link.
 * [Windows](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#windows)
 * [OSX/Linux](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html#os-x-and-linux)
+
+**Note for iOS**
+
+If you experience an "error 65," see the folder *ios-notes* from [Lea](http://hellosunschein.com/)
 
 
 
