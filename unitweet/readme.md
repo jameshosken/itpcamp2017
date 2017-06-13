@@ -26,7 +26,7 @@
 ## Step 3: Unity socket
 
 1. Open Unity & create a new project
-2. Download socketio from **Unity Asset Store** ![Asset Store](https://github.com/jameshosken/itpcamp2017/tree/master/unitweet/img/assetstore.png)
+2. Download socketio from **Unity Asset Store** ![Asset Store](img/assetstoresml.PNG?raw=true)
 3. Drag **SocketIO>Prefabs>SocketIO** into your scene.
 4. Click on the SocketIO GameObject in your scene, and under *Socket IO Component* change **"127.0.0.1"** to **"localhost:3000"**
 5. Create a **New Empty GameObject** called *"SocketHandler"*, and add a script to it called *"SocketConsole.cs"*
@@ -44,7 +44,7 @@ Run *socketServer.js* from the command line `node socketServer.js`
 
 1. Go to **apps.twitter.com** and fill out the relevant details.
 2. Once in your app settings, go to the **permissions** tab and make sure permissions are set to **Read and Write**
-![twitter](https://github.com/jameshosken/itpcamp2017/tree/master/unitweet/img/twitterapi.PNG)
+![twitter](img/twitterapi.png?raw=true)
 3. Create a file in your server folder. See *config-template.js* for more info.
 4. Under the **Keys and Access Tokens** tab in your browser, copy each token into its respective place in *config.js*.
 
