@@ -26,7 +26,7 @@
 ## Step 3: Unity socket
 
 1. Open Unity & create a new project
-2. Download socketio from **Unity Asset Store** ![Asset Store](img/assetstoresml.PNG?raw=true)
+2. Download socketio from **Unity Asset Store** ![Asset Store](img/assetstoresml.png?raw=true)
 3. Drag **SocketIO>Prefabs>SocketIO** into your scene.
 4. Click on the SocketIO GameObject in your scene, and under *Socket IO Component* change **"127.0.0.1"** to **"localhost:3000"**
 5. Create a **New Empty GameObject** called *"SocketHandler"*, and add a script to it called *"SocketConsole.cs"*
