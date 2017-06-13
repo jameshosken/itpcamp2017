@@ -7,49 +7,61 @@
  * @Last modified time: 2017-06-13
  */
 
+/* DESCRIPTION
+This is a super stupid server that simply takes the
+twitter stream coming in and broadcasts some
+of that data to all current socket.io connections.
+*/
 
+/* SETUP NOTES
+Make sure that you run `npm init` before you install
+any of the below packages. To install a package, in your server folder 
+run `npm install [package name] --save`
+*/
 
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require("socket.io")(http);
-var config = require("./config.js");
+var app = require('express')();         //npm install --save express
+var http = require('http').Server(app); //npm install --save socket.io
+var io = require("socket.io")(http);    //npm install --save socket.io
 
-//BEGIN TWITTER STUFF:
+var config = require("./config.js");    //This is for your API keys. See config-template in same folder
+
+/////////////////
+// FOR TWITTER //
+/////////////////
+
 var Twit = require("twit");
-console.log("Config: " + config)
 
-var T = new Twit(config);
+var T = new Twit(config);     // Refernece your config file with API keys
 
+//Listen on the twitter stream for tweets containing the phrase "yolo"
 var stream = T.stream('statuses/filter', { track: 'yolo' }, function(e){
   console.log(e);
 });
-
-T.get('statuses/home_timeline', function (err, reply) {
-  if (err)
-    return console.log('err', err)
-
-  console.log('reply', reply)
-})
 
 stream.on('tweet', function (tweet) {
   console.log(tweet)
   io.emit(tweet);
 })
 
-//END TWITTER STUFF
-
-app.get('/', function(req, res){
-  res.send('<h1>Hello world</h1>');
-});
+///////////////////////////
+// SOCKET.IO CONNECTIONS //
+///////////////////////////
 
 io.on('connection', function(socket){
   console.log('a user connected');
 });
 
-// Test emit every 5 secs
-setInterval(function () {
-  io.emit("test", {info: "sup"})
-}, 5000);
+///////////////////
+// SERVER ROUTES //
+///////////////////
+
+app.get('/', function(req, res){
+  res.send('<h1>My server works!</h1>');
+});
+
+////////////
+// LISTEN //
+////////////
 
 http.listen(process.env.PORT || 3000, function(){
   console.log('listening on *:3000');
