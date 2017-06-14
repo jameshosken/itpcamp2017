@@ -7,7 +7,7 @@
 ## Step 1: Install Node & packages
 
 1. Install Node
-2. Create new folder called 'server'
+2. Create new folder (inside your master folder) called 'server'
 3. Open console and cd to server folder.
 4. `npm init` *Creates a package.json, which will eventually allow is to deploy to the web*
 5. `npm install --save express` & `npm install --save http`
@@ -35,10 +35,10 @@ This is the Unity Asset we'll be using. It is available for free from the asset 
 4. Click on the SocketIO GameObject in your scene, and under *Socket IO Component* change **"127.0.0.1"** to **"localhost:3000"**
 5. Create a **New Empty GameObject** called *"SocketHandler"*, and add a script to it called *"SocketConsole.cs"*
 6. ** *Mad code time* ** (Time to code in our SocketConsole script)
-  * Find GameObject called SocketIO
-  * Reference its SocketIO Component
-  * In Start(), listen for a socket connection `socket.On([msg], [function])`
-  * See */unity-scripts/SocketConsole.cs* for exact code.
+    * Find GameObject called SocketIO
+    * Reference its SocketIO Component
+    * In Start(), listen for a socket connection `socket.On([msg], [function])`
+    * See */unity-scripts/SocketConsole.cs* for exact code.
 
 **Test It**
 

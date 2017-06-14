@@ -44,7 +44,7 @@ stream.on('tweet', function (tweet) {
   console.log(usefulData);          //Log to the server logs
 
   io.emit("tweet", usefulData);     //Send to unity!
-  
+
 })
 
 ///////////////////////////
@@ -53,6 +53,16 @@ stream.on('tweet', function (tweet) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.emit('handshake', {message: "Welcome aboard"});
+
+  //Print out if Unity connected sucessfully
+  socket.on("handshake", function(data){
+    console.log("Succesful handshake return. Message received:");
+    console.log(data);
+    for(var i = 0; i < 5; i++){
+      console.log(".");
+    }
+  })
 });
 
 ///////////////////

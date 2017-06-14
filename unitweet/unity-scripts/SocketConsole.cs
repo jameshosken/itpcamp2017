@@ -23,7 +23,6 @@ public class SocketConsole : MonoBehaviour {
          * In this case, fire the "ReceiveTest" function
         */    
         socket.On("newuser", ReceiveTest);
-        socket.On("tweet", ReceiveTweet);
 	}
 	
 	// Update is called once per frame
@@ -37,10 +36,4 @@ public class SocketConsole : MonoBehaviour {
         Debug.Log(e.data);
     }
 
-    public void ReceiveTweet(SocketIOEvent e)
-    {
-        //Send a message to console that we've got data!
-        Debug.Log("Incoming Tweet!");
-        Debug.Log(e.data);
-    }
 }
