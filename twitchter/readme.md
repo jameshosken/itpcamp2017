@@ -1,4 +1,7 @@
-# Create server
+# Twitcher
+## An example of how to bring twitter streams into p5.js
+
+### Create the server
 
 1. Create server directory and cd in using command line
 2. `npm init`(Hit enter when prompted to set up default package.json)
